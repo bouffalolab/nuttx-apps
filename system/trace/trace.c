@@ -475,7 +475,7 @@ static int trace_cmd_mode(FAR const char *name, int index, int argc,
 #ifdef CONFIG_SCHED_INSTRUMENTATION_IRQHANDLER
   strlcpy(filter_irq.name, name, NAME_MAX);
   ioctl(notectlfd, NOTE_GETIRQFILTER,
-        (unsigned long)&filter_irq.irq_mask);
+        (unsigned long)&filter_irq);
   for (count = i = 0; i < NR_IRQS; i++)
     {
       if (NOTE_FILTER_IRQMASK_ISSET(i, &filter_irq.irq_mask))
